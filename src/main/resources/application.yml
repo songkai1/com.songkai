@@ -1,0 +1,27 @@
+spring:
+
+  profiles:
+    active: develop
+
+  thymeleaf:
+    cache: false
+
+  pidfile: shared/tmp/pids/application.pid
+  
+
+server:
+  port: 8521
+
+
+---
+spring:
+  profiles: test
+  
+---
+spring:
+  profiles: demo
+ 
+---
+spring:
+  profiles: production
+ 
