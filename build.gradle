@@ -38,6 +38,13 @@ apply plugin: 'io.spring.dependency-management'
 jar {
     baseName = 'songkai-gradle'
     version =  '0.1.0'
+    
+    from('src/main/resource') {
+        include '**'
+    }
+    from('src/main/resource') {
+        include 'config/**/*.xml'
+    }
 }
 
 sourceCompatibility = 1.8

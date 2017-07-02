@@ -1,11 +1,9 @@
 package com.songkai.configs;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.servlet.Filter;
 
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import com.songkai.filter.ActionFilter;
@@ -18,12 +16,15 @@ public class FilterConfig {
     public FilterRegistrationBean someFilterRegistration() {
 
         FilterRegistrationBean registration = new FilterRegistrationBean();
-        registration.setFilter(new ActionFilter());
-        
-        List<String> urlPatterns = new ArrayList<String>();
-        urlPatterns.add("/**");
-        
-        registration.setUrlPatterns(urlPatterns);
+        registration.setFilter(actionFilter());
+        registration.addUrlPatterns("/*");
+        registration.addInitParameter("excludedURLs", "/build/;/images;/js/;/css/;/img/;/fonts/");
+        registration.setName("actionFilter");
         return registration;
+    }
+	
+	@Bean(name = "actionFilter")
+    public Filter actionFilter() {
+        return new ActionFilter();
     }
 }
