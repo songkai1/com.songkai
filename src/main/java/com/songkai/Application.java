@@ -10,7 +10,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
 import com.songkai.Application;
-
+/**
+ * 
+ * @author songkai
+ *
+ */
 @Configuration
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class,DataSourceTransactionManagerAutoConfiguration.class})
 @ComponentScan

@@ -8,6 +8,11 @@ import org.springframework.stereotype.Component;
 
 import com.songkai.filter.ActionFilter;
 
+/**
+ * 
+ * @author songkai
+ *
+ */
 //@Configuration
 @Component
 public class FilterConfig {

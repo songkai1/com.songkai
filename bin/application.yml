@@ -5,7 +5,7 @@ spring:
   thymeleaf:
     cache: false
   
-  rl:
+  rw:
     datasource:
       url: jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.3.47.70)(PORT=10001))(CONNECT_DATA=(SERVICE_NAME=dev02)))
       username: rfd_dev_rl
@@ -33,7 +33,7 @@ spring:
   thymeleaf:
     cache: false
     
-  rl:
+  rw:
     datasource:
       url: jdbc:oracle:thin:@ (DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle-rl-01.rfddc.com)(PORT = 10001))(ADDRESS = (PROTOCOL = TCP)(HOST = oracle-rl-02.rfddc.com)(PORT = 10001))(ADDRESS =(PROTOCOL = TCP)(HOST = oracle-rl-03.rfddc.com)(PORT = 10001))(ADDRESS =(PROTOCOL = TCP)(HOST = oracle-rl-04.rfddc.com)(PORT = 10001)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME = rfd01_rl)))
       username: RFD_DEV_RL

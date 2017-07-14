@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.songkai.models.mapper.EmployeeMapper">
+
+	<!--通过员工id 得到 员工名字 ，员工id,员工所在部门的id，所在部门的名称，所在部门的类型id，所在部门类型名称 -->
+	<select id="select_employeeDept_list" resultType="com.songkai.entity.User">
+		select
+		em.employeeid,em.employeename,em.employeecode,em.cellphone,em.eemail,em.sysmanager,em.merchantbaseinfoid merchantid, em.distributioncode,
+		em.isonline,ep.expresscompanyid,ep.companyname,ep.expresscompanycode,ep.companyflag,ep.parentid,
+		ep.billparent,
+		d.distributionname,em.avatar,dt.districtid,dt.districtname
+		from PS_PMS.EMPLOYEE em 
+		join ps_pms.expresscompany ep on em.stationid=ep.expresscompanyid 
+		join ps_pms.distribution d on d.distributioncode = em.distributioncode
+		join ps_pms.district dt on dt.districtid = ep.districtid
+		where em.employeeid=#{employeeid,jdbcType=NUMERIC}  
+	</select>
+	
+</mapper>

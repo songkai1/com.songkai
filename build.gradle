@@ -21,12 +21,14 @@
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
         classpath('io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE')
+        classpath "ru.trylogic.gradle.plugins:gradle-thrift-plugin:0.1.1"
     }
  }
 
 
 // Apply the java plugin to add support for Java
 //声明当前构建的是什么
+apply plugin: 'thrift'
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
@@ -77,14 +79,26 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-jetty')
     compile('org.springframework.boot:spring-boot-starter-actuator')
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-jdbc')
     compile('org.mybatis:mybatis:3.3.1')
     compile('org.mybatis:mybatis-spring:1.2.5')
     compile('com.alibaba:druid:1.0.18')
+    compile('org.apache.poi:poi:3.12')
     
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     
     compile("org.apache.commons:commons-lang3:3.4")
     compile("org.apache.thrift:libthrift:0.8.0")
+    
+    compile 'com.facebook.swift:swift-annotations:0.14.1'
+    compile 'com.facebook.swift:swift-service:0.14.1'
+    compile 'com.facebook.swift:swift-codec:0.14.1'
+    compile group: 'com.facebook.swift', name: 'swift2thrift-generator-cli', version: '0.23.1'
+    compile group: 'com.facebook.swift', name: 'swift-generator', version: '0.23.1'
+    compile "com.ecwid.consul:consul-api:1.2.1"
+    
+    compile("com.facebook.nifty:nifty-core:0.23.0")
+    
 	compile("com.google.guava:guava:19.0")
 	
 	compile fileTree(dir:'lib',include:'*.jar')

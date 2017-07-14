@@ -14,7 +14,11 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+/**
+ * 
+ * @author songkai
+ *
+ */
 public class ActionFilter implements Filter {
 
 	@Override

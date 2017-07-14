@@ -5,7 +5,11 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.songkai.interceptors.ActionInterceptor;
-
+/**
+ * 
+ * @author songkai
+ *
+ */
 @Configuration
 public class ApplicationConfig  extends WebMvcConfigurerAdapter{
 	
