@@ -1,30 +1,30 @@
 spring:
-
-  profiles.active: develop
+  application.name: zookeeperdemo
+  profiles.active: production
 
   thymeleaf:
     cache: false
   
-  rl:
-    datasource:
-      url: jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.3.47.70)(PORT=10001))(CONNECT_DATA=(SERVICE_NAME=dev02)))
-      username: rfd_dev_rl
-      password: QCVaxaLMWpakbydi13fXpEaswSWnY11zy6nTy+q3O6bXa12761nBN/9VZnUIlT613S/sBcC941PuPyvwdLCgKQ==
-
   pidfile: shared/tmp/pids/application.pid
   
 
 server:
   port: 8521
 
-
+rfd_oracle_rl_zookeeper_filename: '/pms.wltest.com/oracle_dev_rl'
+rfd_seller_mysql_rl_zookeeper_filename: /pms.wltest.com/mysql_dev_rl
+    
 ---
 spring:
   profiles: test
   
+  
+  
 ---
 spring:
   profiles: demo
+  
+  
  
 ---
 spring:
@@ -33,11 +33,8 @@ spring:
   thymeleaf:
     cache: false
     
-  rl:
-    datasource:
-      url: jdbc:oracle:thin:@ (DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle-rl-01.rfddc.com)(PORT = 10001))(ADDRESS = (PROTOCOL = TCP)(HOST = oracle-rl-02.rfddc.com)(PORT = 10001))(ADDRESS =(PROTOCOL = TCP)(HOST = oracle-rl-03.rfddc.com)(PORT = 10001))(ADDRESS =(PROTOCOL = TCP)(HOST = oracle-rl-04.rfddc.com)(PORT = 10001)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME = rfd01_rl)))
-      username: RFD_DEV_RL
-      password: QCVaxaLMWpakbydi13fXpEaswSWnY11zy6nTy+q3O6bXa12761nBN/9VZnUIlT613S/sBcC941PuPyvwdLCgKQ==
-
 server:
   port: 8251
+  
+rfd_oracle_rl_zookeeper_filename: /pms.wuliusys.com/oracle_prod_rl
+rfd_seller_mysql_rl_zookeeper_filename: /pms.wuliusys.com/mysql_prod_rl

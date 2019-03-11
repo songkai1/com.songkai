@@ -1,7 +1,24 @@
 package com.songkai.repositories;
 
-import org.mybatis.spring.support.SqlSessionDaoSupport;
+import javax.annotation.Resource;
 
-public class MyBatisGeneralRepository extends SqlSessionDaoSupport{
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
+@Repository
+public class MyBatisGeneralRepository{
+
+	@Resource(name = "sqlRWSession")
+    protected SqlSession sqlSession;
+	@Resource(name = "sqlMysqlRWSession")
+	protected SqlSession mysqlSqlSession;
+
+    public SqlSession getSqlSession(){
+        return sqlSession;
+    }
+    
+    public SqlSession getMysqlSqlSession() {
+		return mysqlSqlSession;
+	}
+    
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.songkai.models.mapper.EmployeeMapper">
+	
+	<select id="findAllUser" resultType="com.songkai.entity.User">
+		SELECT 
+			EMPLOYEEID,
+			EMPLOYEECODE,
+			EMPLOYEENAME,
+			CELLPHONE 
+		FROM 
+			PS_PMS.EMPLOYEE 
+		WHERE ISDELETED = 0 AND DISTRIBUTIONCODE = 'rfd'
+	</select>
+	
+	<select id="findAllSellers" resultType="com.songkai.entity.Sellers">
+		select id,name,code from sellers 
+	</select>
+	
+</mapper>

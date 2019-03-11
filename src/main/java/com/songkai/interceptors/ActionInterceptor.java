@@ -22,7 +22,7 @@ public class ActionInterceptor implements HandlerInterceptor {
 	    if (hour < 4) {
 	        return true;
 	    }
-		return false;
+		return true;
 	}
 
 	@Override

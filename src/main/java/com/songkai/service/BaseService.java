@@ -17,14 +17,5 @@ public class BaseService {
 	
 	@Autowired
 	protected MyBatisGeneralRepository mGeneralRepository;
-
-	public MyBatisGeneralRepository getmGeneralRepository() {
-		return mGeneralRepository;
-	}
-
-	public void setmGeneralRepository(MyBatisGeneralRepository mGeneralRepository) {
-		this.mGeneralRepository = mGeneralRepository;
-	}
-	
 	
 }

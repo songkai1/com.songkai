@@ -5,7 +5,7 @@ set :application, "songkai"
 set :repo_url, "https://github.com/songkai1/com.songkai.git"
 
 set :scm, :git
-set :scm_passphrass, ""
+#set :scm_passphrass, ""
 
 set :version, "0.1.0"
 set :jar_file, "songkai-gradle-#{fetch(:version)}.jar"

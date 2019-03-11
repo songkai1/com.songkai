@@ -3,8 +3,102 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Insert title here</title>
+<link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
-	Hello World
+
+<body  >
+	<div class="container">
+		<video muted="muted" controls="controls" height="320" width="540" autoplay="autoplay" loop="loop">
+			<source src="/video/d.mp4" type="video/mp4" />
+		</video>
+		
+		<div class="layui-tab-brief">
+			  <ul class="layui-tab-titles">
+			    <li class="layui-this" id="SiteSettings">
+			    	<button type="button" id="querySiteSettings" class="btn btn-default">新取货地址确认</button>
+			    	<span class="badge" id="disread-badge-index" style=" position: absolute;margin-top: -10px;margin-left: -10px; z-index: 10;" ></span>
+			    </li>
+			    <li id="userManagement"><button type="button" id="queryUserManagement" class="btn btn-default">未确认取货时间</button></li>
+			    <li id="normalCondition"><button type="button" id="queryNormalCondition" class="btn btn-default">正常商家状态</button></li>
+			  </ul>
+		</div>
+		
+		<div class="layui-tab-content">
+		
+	    </div>
+	
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th></th>
+					<th>尾程供应商名称</th>
+					<th>如风达卖家id</th>
+					<th>卖家id</th>
+					<th>卖家业务名称</th>
+					<th>联系人</th>
+					<th>联系电话</th>
+					<th>是否固定取件</th>
+					<th>取件时间</th>
+					<th>取件方式</th>
+					<th>取件地址</th>
+					<th>自送站点</th>
+					<th>最后操作人</th>
+					<th>最后操作时间</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr>
+					<td><a href="" id="updateId" >修改</a>  </td>
+					<td>IB</td>
+					<td>12</td>
+					<td>HTPOW Modem-P</td>
+					<td>abc</td>
+					<td>于先生</td>
+					<td>12323123123</td>
+					<td>是</td>
+					<td>15：00</td>
+					<td>上门</td>
+					<td>北京市大兴区地盛北街1号35号楼</td>
+					<td>亦庄站</td>
+					<td>张三</td>
+					<td>2017-08-28</td>
+				</tr>
+				<tr>
+					<td><a href="" id="updateId" >修改</a>  </td>
+					<td>IB</td>
+					<td>12</td>
+					<td>HTPOW Modem-P</td>
+					<td>abc</td>
+					<td>于先生</td>
+					<td>12323123123</td>
+					<td>否</td>
+					<td>16：00</td>
+					<td>上门</td>
+					<td>上海市浦东新区</td>
+					<td>浦东站</td>
+					<td>张三</td>
+					<td>2017-08-28</td>
+				</tr>
+				<tr>
+					<td><a href="" id="updateId" >修改</a>  </td>
+					<td>IB</td>
+					<td>12</td>
+					<td>HTPOW</td>
+					<td>ddd</td>
+					<td>于先生</td>
+					<td>12323123123</td>
+					<td>是</td>
+					<td>15：00</td>
+					<td>上门</td>
+					<td>北京市大兴区地盛北街1号35号楼</td>
+					<td>亦庄站</td>
+					<td>张三</td>
+					<td>2017-08-28</td>
+				</tr>
+			</tbody>
+		</table>
+	
+	</div>
 </body>
 </html>

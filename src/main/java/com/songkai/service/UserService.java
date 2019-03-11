@@ -1,20 +1,22 @@
 package com.songkai.service;
 
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
-import com.facebook.swift.service.ThriftService;
+import org.springframework.stereotype.Service;
+
+import com.songkai.entity.Sellers;
 import com.songkai.entity.User;
 
-/**
- * 
- * @author songkai
- *
- */
-@ThriftService("usersService")
 @Service
-@Transactional
-public interface UserService {
+public class UserService extends BaseService{
+
+	private final String USER_NAMESPACE = "com.songkai.models.mapper.EmployeeMapper.";
 	
-	User getByid(Long id);
+	public List<User> findAllUser(){
+		return mGeneralRepository.getSqlSession().selectList(USER_NAMESPACE+"findAllUser");
+	}
+	public List<Sellers> findAllSellers(){
+		return mGeneralRepository.getMysqlSqlSession().selectList(USER_NAMESPACE+"findAllSellers");
+	}
+	
 }

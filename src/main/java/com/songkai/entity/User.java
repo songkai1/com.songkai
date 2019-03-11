@@ -1,37 +1,61 @@
 package com.songkai.entity;
 
-import com.facebook.swift.codec.ThriftField;
-import com.facebook.swift.codec.ThriftStruct;
-
-/**
- * @author songkai
- */
-@ThriftStruct
 public class User {
-	private Long id;
-	private String employeename;
-	private String employeecode;
+
+	private Long employeeId;
+	private String employeeCode;
+	private String employeeName;
+	private String cellphone;
 	
-	@ThriftField(1)
-	public Long getId() {
-		return id;
+	
+	
+	/**
+	 * @return the employeeId
+	 */
+	public Long getEmployeeId() {
+		return employeeId;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	/**
+	 * @param employeeId the employeeId to set
+	 */
+	public void setEmployeeId(Long employeeId) {
+		this.employeeId = employeeId;
 	}
-	@ThriftField(2)
-	public String getEmployeename() {
-		return employeename;
+	/**
+	 * @return the employeeCode
+	 */
+	public String getEmployeeCode() {
+		return employeeCode;
 	}
-	public void setEmployeename(String employeename) {
-		this.employeename = employeename;
+	/**
+	 * @param employeeCode the employeeCode to set
+	 */
+	public void setEmployeeCode(String employeeCode) {
+		this.employeeCode = employeeCode;
 	}
-	@ThriftField(3)
-	public String getEmployeecode() {
-		return employeecode;
+	/**
+	 * @return the employeeName
+	 */
+	public String getEmployeeName() {
+		return employeeName;
 	}
-	public void setEmployeecode(String employeecode) {
-		this.employeecode = employeecode;
+	/**
+	 * @param employeeName the employeeName to set
+	 */
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
+	}
+	/**
+	 * @return the cellphone
+	 */
+	public String getCellphone() {
+		return cellphone;
+	}
+	/**
+	 * @param cellphone the cellphone to set
+	 */
+	public void setCellphone(String cellphone) {
+		this.cellphone = cellphone;
 	}
 	
 }
