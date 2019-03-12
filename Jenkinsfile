@@ -1,5 +1,5 @@
 pipeline {
-    agent node
+    agent any
 
     parameters {
         choice(name:'buildMoudle',choices:['web'],description:'请选择要构建的子模块')
