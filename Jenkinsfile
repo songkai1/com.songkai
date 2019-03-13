@@ -34,7 +34,11 @@ pipeline {
                 equals expected: 'deploy', actual: params.operateType
             }
             steps {
-                sh "./gradlew build -xTest"
+                script {
+	            	withMaven(jdk: 'jdk') {
+	            		sh "./gradlew build -xTest"
+	            	}
+	            }
             }
         }
 
