@@ -1,12 +1,12 @@
 #!/bin/bash
 
 action=$1
-project_name=$2
-profile=$3
-dir_path=$4
+project_name=songkai-gradle
+profile=test
+dir_path=/JavaWeb/pms2.wltest.com/comSongkai
 
 jar_name="songkai-gradle-0.1.0.jar"
-pid=$dir_path/$project_name"/shared/tmp/pids/*.pid"
+pid=$dir_path"/shared/tmp/pids/*.pid"
 
 start(){
     if [ -d $dir_path/$project_name ]
