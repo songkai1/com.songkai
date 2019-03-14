@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters {
-        choice(name:'buildMoudle',choices:['web'],description:'请选择要构建的子模块')
+        choice(name:'buildMoudle',choices:['songkai-gradle'],description:'请选择要构建的子模块')
 
         choice(name:'profile',choices:['test','production'],description:'请选择要构建的环境配置')
 
@@ -56,10 +56,10 @@ pipeline {
                         equals expected: '10.3.45.201', actual: params.toServer
                     }
                     steps {
-                        sh "echo copy songkai-gradle-0.1.0.jar to 10.3.45.201 ..."
-                        sh "scp ./build/libs/songkai-gradle-0.1.0.jar  deploy@10.3.45.201:/JavaWeb/pms-service.wltest.com/comSongkai/songkai-gradle-0.1.0.jar"
+                        sh "echo copy ${params.buildMoudle}-0.1.0.jar to 10.3.45.201 ..."
+                        sh "scp ./build/libs/${params.buildMoudle}-0.1.0.jar  deploy@10.3.45.201:/JavaWeb/pms-service.wltest.com/comSongkai/${params.buildMoudle}-0.1.0.jar"
                         sh "chmod +x ./deploy.sh"
-                        sh "ssh deploy@10.3.45.201 bash -s < ./deploy.sh deploy"
+                        sh "ssh deploy@10.3.45.201 bash -s < ./deploy.sh deploy ${params.buildMoudle} ${params.profile} /JavaWeb/pms-service.wltest.com/comSongkai"
                     }
                 }
             }
@@ -81,7 +81,7 @@ pipeline {
                     steps {
                         sh "echo ${params.operateType} project on 10.3.45.201 ..."
                         sh "chmod +x ./deploy.sh"
-                        sh "ssh deploy@10.3.45.201 bash -s < ./deploy.sh deploy"
+                        sh "ssh deploy@10.3.45.201 bash -s < ./deploy.sh ${params.operateType} ${params.buildMoudle} ${params.profile} /JavaWeb/pms-service.wltest.com/comSongkai"
                     }
                 }
             }
@@ -99,7 +99,7 @@ pipeline {
                         body: "操作人ID：【${BUILD_USER_ID}】 ,操作人姓名：【${BUILD_USER}】" + '<br/>${FILE,path="email.html"}',
                         attachLog: true,
                         from: 'rfd@rufengda.com',
-                        to: 'songkai@rufengdao.com'
+                        to: 'songkai@rufengda.com'
                     )
                 }
             }

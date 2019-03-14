@@ -1,11 +1,11 @@
 #!/bin/bash
 
 action=$1
-project_name=songkai-gradle
-profile=test
-dir_path=/JavaWeb/pms-service.wltest.com/comSongkai
+project_name=$2
+profile=$3
+dir_path=$4
 
-jar_name="songkai-gradle-0.1.0.jar"
+jar_name="$project_name-0.1.0.jar"
 pid=$dir_path"/shared/tmp/pids/*.pid"
 
 start(){
@@ -75,20 +75,20 @@ restart(){
 }
 
 backup(){
-    if [ -d $dir_path/$project_name ]
+    if [ -d $dir_path ]
     then
-        cd $dir_path/$project_name
+        cd $dir_path
         if [ -d backup ]
         then
             if [ -f $jar_name ]
             then
-                mv $dir_path/$project_name/$jar_name $dir_path/$project_name/backup/ie-$project_name'_'$(date "+%Y-%m-%d_%H%M%S")'.jar'
+                mv $dir_path/$jar_name $dir_path/backup/$project_name'_'$(date "+%Y-%m-%d_%H%M%S")'.jar'
             fi
         else
             mkdir backup
             if [ -f $jar_name ]
             then
-                mv $dir_path/$project_name/$jar_name $dir_path/$project_name/backup/ie-$project_name'_'$(date "+%Y-%m-%d_%H%M%S")'.jar'
+                mv $dir_path/$jar_name $dir_path/backup/$project_name'_'$(date "+%Y-%m-%d_%H%M%S")'.jar'
             fi
         fi
         echo ">>>>>>备份完成"
@@ -102,7 +102,7 @@ backup(){
             rm -r $(ls -rt | head -n$rm_count)
         fi
     else
-        echo "$dir_path/$project_name 目录不存在"
+        echo "$dir_path 目录不存在"
     fi
 }
 
