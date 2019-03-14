@@ -2,6 +2,9 @@ package com.songkai.controller;
 
 import java.util.List;
 
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessageProperties;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.HttpStatus;
@@ -26,7 +29,10 @@ public class TestController {
 	private UserService userService;
 	
 	@Autowired
-	protected StringRedisTemplate redisTemplate;
+	private StringRedisTemplate redisTemplate;
+	
+	@Autowired
+	private RabbitTemplate rabbitTemplate;
 	
 	@RequestMapping(value={"","/"},method=RequestMethod.GET, produces = "application/json; charset=utf-8")
 	@ResponseBody

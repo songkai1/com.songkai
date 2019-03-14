@@ -1,5 +1,6 @@
 package com.songkai.service;
 
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
@@ -21,5 +22,8 @@ public class BaseService {
 	
 	@Autowired
 	protected StringRedisTemplate redisTemplate;
+	
+	@Autowired
+	protected RabbitTemplate rabbitTemplate;
 	
 }

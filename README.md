@@ -19,5 +19,6 @@
 7. capistrano
 8. thymeleaf
 9. redis
-10.ZooKeeper
-11.Jenkins
+10. ZooKeeper
+11. Jenkins
+

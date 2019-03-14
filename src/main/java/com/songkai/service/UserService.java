@@ -9,7 +9,7 @@ import com.songkai.entity.User;
 
 @Service
 public class UserService extends BaseService{
-
+	
 	private final String USER_NAMESPACE = "com.songkai.models.mapper.EmployeeMapper.";
 	
 	public List<User> findAllUser(){
