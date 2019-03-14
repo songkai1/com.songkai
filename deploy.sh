@@ -3,15 +3,15 @@
 action=$1
 project_name=songkai-gradle
 profile=test
-dir_path=/JavaWeb/pms2.wltest.com/comSongkai
+dir_path=/JavaWeb/pms-service.wltest.com/comSongkai
 
 jar_name="songkai-gradle-0.1.0.jar"
 pid=$dir_path"/shared/tmp/pids/*.pid"
 
 start(){
-    if [ -d $dir_path/$project_name ]
+    if [ -d $dir_path ]
     then
-        cd $dir_path/$project_name
+        cd $dir_path
         if [ -f $pid ]
         then
             echo ">>>>>>启动失败，项目已经启动"
@@ -24,14 +24,14 @@ start(){
             echo ">>>>>>启动成功，pid：`cat $pid`"
         fi
     else
-        echo "$dir_path/$project_name 目录不存在"
+        echo "$dir_path 目录不存在"
     fi
 }
 
 stop(){
-    if [ -d $dir_path/$project_name ]
+    if [ -d $dir_path ]
     then
-        cd $dir_path/$project_name
+        cd $dir_path
         if [ -f $pid ]
         then
             echo ">>>>>>关闭中..."
@@ -51,21 +51,21 @@ stop(){
             echo ">>>>>>关闭失败，未发现pid文件"
         fi
     else
-        echo "$dir_path/$project_name 目录不存在"
+        echo "$dir_path 目录不存在"
     fi
 }
 
 deploy(){
-    if [ -d $dir_path/$project_name ]
+    if [ -d $dir_path ]
     then
         stop
-        mv $dir_path/$project_name'_temp.jar' $dir_path/$project_name/$jar_name
+        mv $dir_path/$jar_name $dir_path/$jar_name
         start
     else
         cd $dir_path
         mkdir $project_name
         stop
-        mv $dir_path/$project_name'_temp.jar' $dir_path/$project_name/$jar_name
+        mv $dir_path/$jar_name $dir_path/$jar_name
         start
     fi
 }
