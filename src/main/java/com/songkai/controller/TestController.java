@@ -3,6 +3,7 @@ package com.songkai.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -24,12 +25,17 @@ public class TestController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	protected StringRedisTemplate redisTemplate;
+	
 	@RequestMapping(value={"","/"},method=RequestMethod.GET, produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public ResponseEntity test() {
 		List<User> list = userService.findAllUser();
 		List<Sellers> sellers = userService.findAllSellers();
 		System.out.println(sellers);
+		String code =  redisTemplate.opsForValue().get("pms-01");
+		System.out.println(code);
 		return ResponseEntity.status(HttpStatus.OK).body(list);
 	}
 	

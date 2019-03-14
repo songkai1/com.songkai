@@ -7,6 +7,12 @@ spring:
   
   pidfile: shared/tmp/pids/application.pid
   
+  redis:
+     host: 10.3.22.43
+     port: 6379
+     read-time-out: 100000
+     write-time-out: 100000
+  
 
 server:
   port: 8521
