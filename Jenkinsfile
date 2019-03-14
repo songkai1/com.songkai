@@ -57,7 +57,7 @@ pipeline {
                     }
                     steps {
                         sh "echo copy ${params.buildMoudle}-0.1.0.jar to 10.3.45.201 ..."
-                        sh "scp ./build/libs/${params.buildMoudle}-0.1.0.jar  deploy@10.3.45.201:/JavaWeb/pms-service.wltest.com/comSongkai/${params.buildMoudle}-0.1.0.jar"
+                        sh "scp ./build/libs/${params.buildMoudle}-0.1.0.jar  deploy@10.3.45.201:/JavaWeb/pms-service.wltest.com/comSongkai/${params.buildMoudle}-0.1.0_temp.jar"
                         sh "chmod +x ./deploy.sh"
                         sh "ssh deploy@10.3.45.201 bash -s < ./deploy.sh deploy ${params.buildMoudle} ${params.profile} /JavaWeb/pms-service.wltest.com/comSongkai"
                     }

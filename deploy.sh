@@ -60,14 +60,14 @@ deploy(){
     then
         stop
         backup
-        mv $dir_path/$jar_name $dir_path/$jar_name
+        mv $dir_path/$project_name'-0.1.0_temp.jar' $dir_path/$jar_name
         start
     else
         cd $dir_path
         mkdir $project_name
         stop
         backup
-        mv $dir_path/$jar_name $dir_path/$jar_name
+        mv $dir_path/$project_name'-0.1.0_temp.jar' $dir_path/$jar_name
         start
     fi
 }
