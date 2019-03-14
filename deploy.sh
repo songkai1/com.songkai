@@ -59,12 +59,14 @@ deploy(){
     if [ -d $dir_path ]
     then
         stop
+        backup
         mv $dir_path/$jar_name $dir_path/$jar_name
         start
     else
         cd $dir_path
         mkdir $project_name
         stop
+        backup
         mv $dir_path/$jar_name $dir_path/$jar_name
         start
     fi
