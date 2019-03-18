@@ -21,4 +21,5 @@
 9. redis
 10. ZooKeeper
 11. Jenkins
+12. RabbitMQ
 

@@ -1,5 +1,8 @@
 package com.songkai.configs.rabbitMq;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;
@@ -57,6 +60,8 @@ public class RabbitMqConfig {
 	 */
 	@Bean(name="MQ_TEST_PMS1")
 	public Queue queue002() {
+		Map<String, Object> args = new HashMap<String, Object>();
+		args.put("x-message-ttl", "300000");
 		return new Queue("MQ_TEST_PMS1",true);
 	}
 	

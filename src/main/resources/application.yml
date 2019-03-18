@@ -1,6 +1,10 @@
 spring:
   application.name: zookeeperdemo
-  profiles.active: production
+  profiles.active: test
+  #security:
+  #  user:
+  #    name: "user"
+  #    password: "password"
 
   thymeleaf:
     cache: false
@@ -13,6 +17,24 @@ spring:
      read-time-out: 100000
      write-time-out: 100000
   
+#eureka: 
+#  instance: 
+#    leaseRenewalIntervalInSeconds: 10 
+#    health-check-url-path: /actuator/health 
+#  client: 
+#    registryFetchIntervalSeconds: 5 
+#    serviceUrl: 
+#      defaultZone: ${EUREKA_SERVICE_URL:http://10.3.22.14:8761}/eureka/
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"  #<2>
+#  endpoint:
+#    health:
+#      show-details: ALWAYS
+
 
 server:
   port: 8521
